@@ -1,0 +1,49 @@
+\begin{algorithm}[t]
+\caption{Training the Hypergraph Latent Diffusion Model}
+\label{alg:ldm_train}
+\DontPrintSemicolon
+
+\KwIn{Trained $\beta$-VAE, sub-hypergraphs $(X^V,X^E,H)$, diffusion steps $T$, flag \textsc{Unconstrained}}
+\KwOut{Trained latent diffusion model}
+
+Freeze the pretrained $\beta$-VAE\;
+
+Initialize the hyperedge denoiser\;
+
+\If{\textsc{Unconstrained}}{
+    Initialize the node denoiser\;
+}
+
+\For{each training epoch}{
+    \For{each mini-batch $(X^V,X^E,H)$}{
+        Encode the mini-batch with the frozen $\beta$-VAE to obtain clean latents $(Z^V,Z^E)$\;
+
+        Sample a diffusion step $t$\;
+
+        Add Gaussian noise to the hyperedge latents $Z^E$ to obtain $Z_t^E$\;
+
+        \If{\textsc{Unconstrained}}{
+            Add Gaussian noise to the node latents $Z^V$ to obtain $Z_t^V$\;
+
+            Predict the node velocity target from $Z_t^V$ conditioned on $Z_t^E$\;
+
+            Predict the hyperedge velocity target from $Z_t^E$ conditioned on $Z_t^V$\;
+        }
+        \Else{
+            Predict the hyperedge velocity target from $Z_t^E$ conditioned on the clean node latents $Z^V$\;
+        }
+
+        Compute the denoising loss between predicted and true velocity targets\;
+
+        Backpropagate the denoising loss\;
+
+        Update the diffusion parameters with AdamW\;
+
+        Update the EMA weights\;
+    }
+}
+
+Select the checkpoint with the best validation generation quality\;
+
+\Return{trained latent diffusion model}
+\end{algorithm}
