@@ -3,11 +3,41 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="icon" href="assets/figures/janus-icon.png" />
         <title>Janus — Hypergraph Generation with Latent Diffusion</title>
         <meta
             content="Janus: a dual-view latent diffusion approach for high-fidelity hypergraph generation."
             name="description"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="https://hypernetwork-research-group.github.io/janus/">
+
+        <!-- Open Graph: LinkedIn, Facebook, etc. -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Janus">
+        <meta
+            property="og:title"
+            content="Janus: Hypergraph Generation with Latent Diffusion"
+        >
+        <meta
+            property="og:description"
+            content="A dual-view latent diffusion framework for generating realistic hypergraphs. NeurIPS 2026 research, code, and results."
+        >
+        <meta
+            property="og:url"
+            content="https://hypernetwork-research-group.github.io/janus/"
+        >
+        <meta
+            property="og:image"
+            content="https://hypernetwork-research-group.github.io/janus/janus-logo.png"
+        >
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta
+            property="og:image:alt"
+            content="Janus research project: Hypergraph Generation with Latent Diffusion"
+        >
+
         <link href="styles.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -15,11 +45,61 @@
             href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
             rel="stylesheet"
         />
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://hypernetwork-research-group.github.io/janus/",
+            "url": "https://hypernetwork-research-group.github.io/janus/",
+            "name": "Janus: Hypergraph Generation with Latent Diffusion",
+            "description": "Research project on dual-view latent diffusion for hypergraph generation.",
+            "inLanguage": "en",
+            "mainEntity": {
+                "@type": "ScholarlyArticle",
+                "headline": "Hypergraph Generation with Latent Diffusion",
+                "url": "https://neurips.cc/virtual/2026/loc/sydney/poster/154651",
+                "author": [
+                {
+                    "@type": "Person",
+                    "name": "Valerio Di Pasquale",
+                    "url": "https://daqh.github.io/"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Alessia Antelmi"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Mirko Polato"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Carmine Spagnuolo",
+                    "url": "https://spagnuolocarmine.github.io/"
+                }
+                ],
+                "keywords": [
+                    "Hypergraph generation",
+                    "Latent diffusion",
+                    "Dual-view generative models",
+                    "Higher-order networks"
+                ],
+                "isPartOf": {
+                    "@type": "CreativeWorkSeries",
+                    "name": "Advances in Neural Information Processing Systems"
+                }
+            }
+        }
+        </script>
     </head>
     <body>
         <nav class="nav">
             <div class="nav-inner">
-                <a class="brand" href="#top"><span class="brand-symbol">✳</span> JANUS</a>
+                <a class="brand" href="#top">
+                    <img src="assets/figures/janus-icon.png" alt="Janus logo" class="brand-symbol" />
+                    JANUS
+                </a>
                 <div class="nav-links">
                     <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a
                     ><a href="#appendix">Appendix</a><a href="#citation">BibTeX</a>
@@ -156,22 +236,42 @@
                         </div>
                     </div>
                     <div class="illustration-grid">
-                        <figure class="">
-                            <img
-                                alt="Cross-attention denoising block."
-                                loading="lazy"
-                                src="assets/figures/cross-dit-block.png"
-                            />
-                            <figcaption>Cross-attention denoising block.</figcaption>
-                        </figure>
-                        <figure class="">
-                            <img
-                                alt="Dual-view variational autoencoder."
-                                loading="lazy"
-                                src="assets/figures/bvae.png"
-                            />
-                            <figcaption>Dual-view variational autoencoder.</figcaption>
-                        </figure>
+                        <!-- Left: VAE with introduction -->
+                        <div class="illustration-item">
+                            <div class="illustration-intro">
+                                <h3>Inside the Janus Architecture</h3>
+                                <p>
+                                    Janus combines a dual-view variational autoencoder
+                                    with cross-conditioned diffusion transformers to
+                                    jointly model node and hyperedge representations.
+                                </p>
+                            </div>
+
+                            <figure>
+                                <img
+                                    alt="Dual-view variational autoencoder."
+                                    loading="lazy"
+                                    src="assets/figures/bvae.png"
+                                />
+                                <figcaption>
+                                    Dual-view variational autoencoder.
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <!-- Right: Cross DiT -->
+                        <div class="illustration-item">
+                            <figure>
+                                <img
+                                    alt="Cross DiT block with adaLN-Zero."
+                                    loading="lazy"
+                                    src="assets/figures/cross-dit-block.png"
+                                />
+                                <figcaption>
+                                    Cross DiT block with adaLN-Zero.
+                                </figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -221,7 +321,7 @@
                         <img
                             alt="Average-rank summary of generation quality across datasets and metric families."
                             loading="lazy"
-                            src="assets/figures/results/result_last.png"
+                            src="assets/figures/radar-results.png"
                         />
                         <figcaption>
                             Average-rank summary of generation quality across datasets and metric families.
@@ -5752,32 +5852,23 @@
                 <div class="content">
                     <h2>BibTeX</h2>
                     <p class="cite-intro">If you use this work, please cite the manuscript:</p>
-                    <button class="copy-citation" id="copy-bibtex" type="button">Copy BibTeX</button>
-                    <pre class="bibtex"><code id="bibtex-code">
-@inproceedings{dipasquale2026janus,
-  title     = {Hypergraph Generation with Latent Diffusion},
-  author    = {Di Pasquale, Valerio and Antelmi, Alessia and Polato, Mirko and Spagnuolo, Carmine},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026},
-  volume={to appear},
-  doi={to appear},
-  url={to appear}
+                    <pre class="bibtex"><code id="bibtex-code">@inproceedings{dipasquale2026janus,
+    title     = {Hypergraph Generation with Latent Diffusion},
+    author    = {Di Pasquale, Valerio and Antelmi, Alessia and Polato, Mirko and Spagnuolo, Carmine},
+    booktitle = {Advances in Neural Information Processing Systems},
+    year      = {2026},
+    volume={to appear},
+    doi={to appear},
+    url={to appear}
 }</code></pre>
                     <div class="actions">
-                       <a
-                            class="button outline"
-                            href="https://github.com/hypernetwork-research-group/janus"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            >Code repository ↗</a
-                        >
+                        <a role="button" class="copy-citation" id="copy-bibtex" type="button">Copy BibTeX</a>
                     </div>
                 </div>
             </section>
         </main>
         <footer>
             Janus · Hypergraph Generation with Latent Diffusion
-            <span>Website design inspired by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</span>
         </footer>
         <script src="script.js"></script>
     </body>
