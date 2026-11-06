@@ -13,7 +13,7 @@ This repository contains a Python package that provides the following code:
 ## Setup
 
 ```bash
-pip install git+https://github.com/anonymous-author-1234/Janus
+pip install git+https://github.com/hypernetwork-research-group/janus
 ```
 
 **Requirements**. Additionally to the code provided in this repository, you should install `torch` and `lightning`.
@@ -168,35 +168,35 @@ janus --batch-size 32 [DATASET] sample --ckpt logs/[DATASET]/logs/version_0/DDM-
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://huggingface.co/datasets/anonymous-author-1234/email-Enron" target="_blank">anonymous-author-1234/email-Enron</a></td>
+      <td><a href="https://huggingface.co/datasets/daqh/email-Enron" target="_blank">anonymous-author-1234/email-Enron</a></td>
       <td>143</td>
       <td>1,512</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><a href="https://huggingface.co/datasets/anonymous-author-1234/email-Eu" target="_blank">anonymous-author-1234/email-Eu</a></td>
+      <td><a href="https://huggingface.co/datasets/daqh/email-Eu" target="_blank">anonymous-author-1234/email-Eu</a></td>
       <td>998</td>
       <td>25,791</td>
       <td>20</td>
       <td>0.9809619238476954</td>
     </tr>
     <tr>
-      <td><a href="https://huggingface.co/datasets/anonymous-author-1234/contact-high-school" target="_blank">anonymous-author-1234/contact-high-school</a></td>
+      <td><a href="https://huggingface.co/datasets/daqh/contact-high-school" target="_blank">anonymous-author-1234/contact-high-school</a></td>
       <td>327</td>
       <td>7,937</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><a href="https://huggingface.co/datasets/anonymous-author-1234/contact-primary-school" target="_blank">anonymous-author-1234/contact-primary-school</a></td>
+      <td><a href="https://huggingface.co/datasets/daqh/contact-primary-school" target="_blank">anonymous-author-1234/contact-primary-school</a></td>
       <td>242</td>
       <td>12,799</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><a href="https://huggingface.co/datasets/anonymous-author-1234/NDC-classes" target="_blank">anonymous-author-1234/NDC-classes</a></td>
+      <td><a href="https://huggingface.co/datasets/daqh/NDC-classes" target="_blank">anonymous-author-1234/NDC-classes</a></td>
       <td>1,161</td>
       <td>1,222</td>
       <td>183</td>
